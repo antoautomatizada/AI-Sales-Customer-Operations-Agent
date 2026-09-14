@@ -142,6 +142,8 @@ Este mecanismo evita que determinadas respuestas sensibles sean enviadas automá
 
 ## 📊 Dashboard y monitoreo
 
+https://airtable.com/appcMsxBd3bBeUQ8t/shrYkBqc0Ifgr2Idf/tblAIs9KB8n83D6ZU/viwuXJ65Kpi4AIAhE
+
 El proyecto incluye un dashboard de control con indicadores operativos:
 
 * Total de Leads.
