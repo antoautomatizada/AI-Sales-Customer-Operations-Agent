@@ -1,0 +1,443 @@
+{
+  "name": "Actualizar Dashboard KPIs",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "minutes"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        -48,
+        -96
+      ],
+      "id": "26603505-5397-47b5-8292-489f9d071491",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "authentication": "airtableOAuth2Api",
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "appcMsxBd3bBeUQ8t",
+          "mode": "list",
+          "cachedResultName": "AI Sales & Customer Operations",
+          "cachedResultUrl": "https://airtable.com/appcMsxBd3bBeUQ8t"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblAIs9KB8n83D6ZU",
+          "mode": "list",
+          "cachedResultName": "Leads",
+          "cachedResultUrl": "https://airtable.com/appcMsxBd3bBeUQ8t/tblAIs9KB8n83D6ZU"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.2,
+      "position": [
+        192,
+        -256
+      ],
+      "id": "99995565-86d4-4b4c-ae5b-2447d6368c11",
+      "name": "Buscar todos los Leads",
+      "credentials": {
+        "airtableOAuth2Api": {
+          "id": "1fY3ogmAH4Rh0G5h",
+          "name": "Airtable account 3"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "airtableOAuth2Api",
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "appcMsxBd3bBeUQ8t",
+          "mode": "list",
+          "cachedResultName": "AI Sales & Customer Operations",
+          "cachedResultUrl": "https://airtable.com/appcMsxBd3bBeUQ8t"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblHMJlgK39npp6Vn",
+          "mode": "list",
+          "cachedResultName": "Interactions",
+          "cachedResultUrl": "https://airtable.com/appcMsxBd3bBeUQ8t/tblHMJlgK39npp6Vn"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.2,
+      "position": [
+        192,
+        -80
+      ],
+      "id": "70eb6c11-f086-4bfb-88e9-516002c8ce1b",
+      "name": "Buscar todas las Interactions",
+      "credentials": {
+        "airtableOAuth2Api": {
+          "id": "1fY3ogmAH4Rh0G5h",
+          "name": "Airtable account 3"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "airtableOAuth2Api",
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "appcMsxBd3bBeUQ8t",
+          "mode": "list",
+          "cachedResultName": "AI Sales & Customer Operations",
+          "cachedResultUrl": "https://airtable.com/appcMsxBd3bBeUQ8t"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tbln3fNfmN0IDruN8",
+          "mode": "list",
+          "cachedResultName": "Errores",
+          "cachedResultUrl": "https://airtable.com/appcMsxBd3bBeUQ8t/tbln3fNfmN0IDruN8"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.2,
+      "position": [
+        192,
+        128
+      ],
+      "id": "73f48a83-902c-41d5-bd13-0af111f0b73d",
+      "name": "Buscar todos los Errores",
+      "credentials": {
+        "airtableOAuth2Api": {
+          "id": "1fY3ogmAH4Rh0G5h",
+          "name": "Airtable account 3"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        512,
+        112
+      ],
+      "id": "ec6a27e5-3231-49a5-83eb-279b181c8f30",
+      "name": "Merge 2"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        400,
+        -176
+      ],
+      "id": "233738f4-5329-4436-b5a4-ddb03db9c1ea",
+      "name": "Merge 1"
+    },
+    {
+      "parameters": {
+        "authentication": "airtableOAuth2Api",
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "appcMsxBd3bBeUQ8t",
+          "mode": "list",
+          "cachedResultName": "AI Sales & Customer Operations",
+          "cachedResultUrl": "https://airtable.com/appcMsxBd3bBeUQ8t"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tbldkuE8LRGOgOCWZ",
+          "mode": "list",
+          "cachedResultName": "Dashboard KPIs.",
+          "cachedResultUrl": "https://airtable.com/appcMsxBd3bBeUQ8t/tbldkuE8LRGOgOCWZ"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.2,
+      "position": [
+        864,
+        112
+      ],
+      "id": "7f2b023e-82c6-4f2d-87ad-38797c750dc5",
+      "name": "Dashboard KPIs",
+      "credentials": {
+        "airtableOAuth2Api": {
+          "id": "1fY3ogmAH4Rh0G5h",
+          "name": "Airtable account 3"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const kpis = $('Code').first().json;\nconst registros = $input.all();\n\nconst valores = {\n  'Total de Leads': kpis.totalLeads,\n  'Total de Interacciones': kpis.totalInteractions,\n  'Respuestas Enviadas': kpis.respuestasEnviadas,\n  'Total de Errores': kpis.totalErrores,\n  'Tasa de Errores': kpis.tasaErrores\n};\n\nreturn registros.map(item => {\n  const nombreKPI = item.json.fields.KPI;\n\n  return {\n    json: {\n      id: item.json.id,\n      KPI: nombreKPI,\n      Valor: valores[nombreKPI],\n      Descripcion: item.json.fields.DESCRIPCION,\n      UltimaActualizacion: kpis.fechaActualizacion\n    }\n  };\n});"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1040,
+        112
+      ],
+      "id": "de9985f8-88d1-4c80-bab2-ef0682ba3450",
+      "name": "Code in JavaScript1"
+    },
+    {
+      "parameters": {
+        "jsCode": "const items = $input.all();\n\nconst totalLeads = items.filter(item =>\n  item.json.fields?.['Lead ID']\n).length;\n\nconst totalInteractions = items.filter(item =>\n  item.json.fields?.['Interaction ID']\n).length;\n\nconst respuestasEnviadas = items.filter(item =>\n  item.json.fields?.['Respuesta enviada']?.toLowerCase() === 'si'\n).length;\n\nconst totalErrores = items.filter(item =>\n  item.json.fields?.['Error ID']\n).length;\n\nconst tasaErrores = totalInteractions > 0\n  ? Number(((totalErrores / totalInteractions) * 100).toFixed(2))\n  : 0;\n\nreturn [\n  {\n    json: {\n      totalLeads,\n      totalInteractions,\n      respuestasEnviadas,\n      totalErrores,\n      tasaErrores,\n      fechaActualizacion: new Date().toISOString()\n    }\n  }\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        688,
+        112
+      ],
+      "id": "8792443c-c380-4c9e-90b3-72d5f14ce0da",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "authentication": "airtableOAuth2Api",
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "appcMsxBd3bBeUQ8t",
+          "mode": "list",
+          "cachedResultName": "AI Sales & Customer Operations",
+          "cachedResultUrl": "https://airtable.com/appcMsxBd3bBeUQ8t"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tbldkuE8LRGOgOCWZ",
+          "mode": "list",
+          "cachedResultName": "Dashboard KPIs.",
+          "cachedResultUrl": "https://airtable.com/appcMsxBd3bBeUQ8t/tbldkuE8LRGOgOCWZ"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $json.id }}",
+            "VALOR": "={{ $json.Valor }}",
+            "ULTIMA ACTUALIZACION": "={{ $json.UltimaActualizacion }}"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "KPI",
+              "displayName": "KPI",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "VALOR",
+              "displayName": "VALOR",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "DESCRIPCION",
+              "displayName": "DESCRIPCION",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "ULTIMA ACTUALIZACION",
+              "displayName": "ULTIMA ACTUALIZACION",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {
+          "typecast": true
+        }
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.2,
+      "position": [
+        1264,
+        112
+      ],
+      "id": "b5159e7c-9aad-4b5e-bf84-ab55b1fe4e1b",
+      "name": "Update record",
+      "credentials": {
+        "airtableOAuth2Api": {
+          "id": "1fY3ogmAH4Rh0G5h",
+          "name": "Airtable account 3"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Buscar todos los Leads",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Buscar todas las Interactions",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Buscar todos los Errores",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Buscar todos los Leads": {
+      "main": [
+        [
+          {
+            "node": "Merge 1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Buscar todas las Interactions": {
+      "main": [
+        [
+          {
+            "node": "Merge 1",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Buscar todos los Errores": {
+      "main": [
+        [
+          {
+            "node": "Merge 2",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Merge 2": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge 1": {
+      "main": [
+        [
+          {
+            "node": "Merge 2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Dashboard KPIs": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "Dashboard KPIs",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript1": {
+      "main": [
+        [
+          {
+            "node": "Update record",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "6f064362-1293-496e-80f3-6ec3a9847ba9",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "a168278fa34e6a4029356be7037f64e63b98e3bc1d2ba84f9aab42e8d4250384"
+  },
+  "nodeGroups": [],
+  "id": "CERAebxkKrClYoPc",
+  "tags": []
+}
